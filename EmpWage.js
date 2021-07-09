@@ -1,35 +1,31 @@
-//UC1 If else Condition
-const IS_ABSENT=0
-let empCheck=Math.floor(Math.random()*10)%2;
-if(empCheck==IS_ABSENT){
-    console.log("UC1-Employee is Absent.");
-    return;
-}else{
-    console.log("UC1-Employee is PRESENT");
-}
-//UC2-Calculate Daily Wage Using Switch Cases
-// const IS_PART_TIME=1;
-// const IS_FULL_TIME=2;
-// const PART_TIME_HOURS=4;
-// const FULL_TIME_HOURS=8;
-// const WAGE_PER_HOUR=20;
+//constants
+const PART_TIME = 4;
+const FULL_TIME = 8;
+const WAGE_PER_HR = 20;
+const FULL_TIME_WORK = 1;
+const HALF_TIME_WORK = 2;
+//variables
+let empWage , workingHours =0;
+let workingDays = 30;
 
-// {//Making function for the emptime
-//     function getWorkingHours(empCheck){
-//         switch(empCheck){
-//             case IS_PART_TIME:
-//                 return PART_TIME_HOURS;
-                
-//             case IS_FULL_TIME:
-//                 return FULL_TIME_HOURS;
-               
-//             default:
-//                 return 0;
-            
-//         }
-//     }
-//     let empCheck=Math.floor(Math.random()*10)%3;
-//     let empHrs=getWorkingHours(empCheck);
-//     let empWage=empHrs*WAGE_PER_HOUR;
-//     console.log("Hours: "+empHrs +"Emp Wage: "+empWage);
-// }
+while (workingDays != 0){
+    let empCheck = Math.floor(Math.random() * 3 );
+    workingHours += GetHours(empCheck);
+    workingDays--;
+}
+empWage = workingHours * WAGE_PER_HR;
+console.log("Employee Wage: " + empWage);
+//function to get emphours
+ function GetHours(empCheck){
+    switch(empCheck){
+        case FULL_TIME_work:
+            //employee is present and full time
+            return  FULL_TIME;
+        case HALF_TIME_WORK:
+            //employee is present and part-time
+            return PART_TIME;   
+        default:
+            //employee is absent
+            return 0;
+    }
+}
