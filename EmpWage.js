@@ -2,10 +2,10 @@
 const IS_ABSENT=0
 let empCheck=Math.floor(Math.random()*10)%2;
 if(empCheck==IS_ABSENT){
-    console.log("UC1-Employee is Absent.");
+    console.log("Employee is Absent.");
     return;
 }else{
-    console.log("UC1-Employee is PRESENT");
+    console.log("Employee is PRESENT");
 }
 UC2-Calculate Daily Wage Using Switch Cases
  const IS_PART_TIME=1;
