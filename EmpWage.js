@@ -23,11 +23,21 @@ switch (empCheck) {
 }
 
 let empHrs = 0;
-const WORKING_DAYS_IN_A_MONTH = 20;
-for (let days = 1; days <= WORKING_DAYS_IN_A_MONTH; days++) {
-let empCheck = Math.floor(Math.random() * 3) ;   //Gives values anywhere from 0,1,2
-    empHrs += GetWorkingHours(empCheck);  // empHrs=empHrs+ empCheck random value
+const MAX_WORKING_DAYS = 20;
+const MAX_WORKING_HOURS = 160;
+let totalEmpHrs = 0;
+let totalWorkingDays = 0;
+
+while (totalEmpHrs <= MAX_WORKING_HOURS && totalWorkingDays <= MAX_WORKING_DAYS) {
+    totalWorkingDays++;
+    let empCheck = Math.floor(Math.random() *3);
+    let dailyEmpHrs = GetWorkingHours(empCheck);
+    if (totalEmpHrs + dailyEmpHrs <= MAX_WORKING_HOURS) {
+        totalEmpHrs += dailyEmpHrs;
+    } else {
+        break;
+    }
 }
 
-let empWage = empHrs * WAGE_PER_HOUR;
-console.log("Total Hours: " + empHrs + "\nTotal Wage: " + empWage);
+let totalempWage = totalempHrs * WAGE_PER_HOUR;
+console.log("Total Hours: " + totalempHrs + "\nTotal Wage: " + totalempWage);
