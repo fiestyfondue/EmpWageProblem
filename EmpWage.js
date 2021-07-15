@@ -27,17 +27,26 @@ const MAX_WORKING_DAYS = 20;
 const MAX_WORKING_HOURS = 160;
 let totalEmpHrs = 0;
 let totalWorkingDays = 0;
-
+// Array() constructor is used to create Array objects
+let dailyWageArr = new Array();
+//0<=20 && 0<= 160
 while (totalEmpHrs <= MAX_WORKING_HOURS && totalWorkingDays <= MAX_WORKING_DAYS) {
+    //totalworkng days = +1
     totalWorkingDays++;
     let empCheck = Math.floor(Math.random() *3);
     let dailyEmpHrs = GetWorkingHours(empCheck);
     if (totalEmpHrs + dailyEmpHrs <= MAX_WORKING_HOURS) {
         totalEmpHrs += dailyEmpHrs;
-    } else {
+        //push() method adds new items to the end of an array.
+        //Adding elements to an array
+         dailyWageArr.push(dailyEmpHrs);
+        } else {
         break;
     }
 }
 
-let totalempWage = totalempHrs * WAGE_PER_HOUR;
-console.log("Total Hours: " + totalempHrs + "\nTotal Wage: " + totalempWage);
+//print array
+console.log(dailyWageArr);
+//calculate total emp wage
+let totalEmpWage = CalculateWage(totalEmpHrs);
+console.log("Total Hours: " + totalEmpHrs + "\nTotal Wage: " + totalEmpWage);
